@@ -15,10 +15,11 @@ def load_json(path):
 
 
 def write_json(o, path):
+  print(path)
+  print(o)
   tf.io.gfile.makedirs(path.rsplit('/', 1)[0])
   with tf.io.gfile.GFile(path, 'w') as f:
-    json.dump(o, f)
-
+    f.write(json.dump(o, f))
 
 def load_pickle(path):
   with tf.io.gfile.GFile(path, 'rb') as f:
